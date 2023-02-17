@@ -1,0 +1,8 @@
+.cartDrawerContainer{
+    min-width: 35vw;
+}
+@media (max-width:992px){
+    .cartDrawerContainer{
+        min-width: 75vw;
+    }
+}

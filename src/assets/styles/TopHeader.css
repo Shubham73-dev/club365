@@ -1,0 +1,31 @@
+.topHeaderContainer{
+    display: flex;
+    justify-content: space-between;
+}
+.logoContainer{
+    max-width: 18%;
+}
+.logoContainer img{
+    height: 100%;
+    width: 100%;
+}
+.cartprofileContainer{
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+}
+.cartContainer{
+    cursor: pointer;
+}
+.cartContainer svg{
+    color: #1976d2;
+}
+.profileContainer{
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+}
+.profileContainer svg{
+    color: #1976d2;
+    cursor: pointer;
+}

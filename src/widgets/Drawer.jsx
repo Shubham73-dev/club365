@@ -5,14 +5,17 @@ import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
+import HistoryIcon from '@mui/icons-material/History';
 import HomeIcon from '@mui/icons-material/Home';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import GavelIcon from '@mui/icons-material/Gavel';
 
 const Leftdrawer = () => {
+    const arr = [<HistoryIcon/>,<HomeIcon/>,<LocalOfferIcon/>,<MenuBookIcon/>,<GavelIcon/>];
     const [state, setState] = React.useState({
         top: false,
         left: false,
@@ -34,9 +37,13 @@ const Leftdrawer = () => {
             onKeyDown={toggleDrawer(anchor, false)}
         >
             <List>
-                {['Order History', 'Home', 'Deals and Offer', 'Menu','Terms and Conditions'].map((text, index) => (
+                {['Order History', 'Home', 'Deals and Offer', 'Menu', 'Terms and Conditions'].map((text, index) => (
                     <ListItem key={text} disablePadding>
                         <ListItemButton>
+                            <ListItemIcon>
+                                {arr[index]}
+
+                            </ListItemIcon>
                             <ListItemText primary={text} />
                         </ListItemButton>
                     </ListItem>

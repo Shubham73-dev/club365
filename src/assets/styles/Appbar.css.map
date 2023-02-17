@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAGA,AAAA,UAAU,CAAA;EACN,IAAI,EAAE,CAAC;CACV",
-    "sources": [
-        "Appbar.scss"
-    ],
-    "names": [],
-    "file": "Appbar.css"
-}
