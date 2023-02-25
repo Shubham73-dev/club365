@@ -11,17 +11,9 @@ const Linktab = (props)=> {
 }
 
 const Appbar = () => {
-  const {mode} = useParams ();
-  useEffect(() => {
-    console.log('**********',{mode});
-    const getCurrentTab = parseInt(sessionStorage.getItem('tabValue')) 
-    setValue(getCurrentTab);
-  }, []);
 
   const [value, setValue] = useState(0);
-
   const handleChange = (event, newValue) => {
-    sessionStorage.setItem('tabValue', newValue);
     setValue(newValue);
   };
   return (

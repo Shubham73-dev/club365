@@ -1,9 +1,30 @@
 import React from 'react'
-
-const Itemsecond = () => {
+import Cardwidget from '../widgets/Cardwidget'
+import { useContext,useEffect,useState } from 'react'
+import apiClient from '../shared/services/api-client'
+import CONFIG from '../settings/config'
+const Itemone = () => {
+  const [loading,setLoad] = useState(true);
+  const [data,setData] = useState([])
+    const getProducts = async()=> {
+      const Products = await apiClient.get(CONFIG.Product_API_URL)
+      setData(Products.data['-NP6UbOIAzuUiUx1gDkS'].jersey)
+      setLoad(false)
+    }
+    useEffect(()=>{
+        getProducts();
+    },[])
   return (
-    <div>Itemsecond</div>
+   <>
+     {loading?<h1>loading...</h1>:
+        <div className='gridClass'>
+            {data.map((item, index) => (
+              <Cardwidget key={index} card={item}/>
+        ))}
+        </div>
+     }
+   </>
   )
 }
 
-export default Itemsecond
+export default React.memo(Itemone)

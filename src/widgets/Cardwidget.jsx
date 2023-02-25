@@ -5,28 +5,28 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 
-const Cardwidget = ({img,cardTitle='card title',cardDescription='card description',Share=<FavoriteIcon style={{color:"red"}}/>,btnValue='add to cart'}) => {
+const Cardwidget = ({ card,operation }) => {
     return (
         <>
             <Card sx={{ maxWidth: 345 }}>
                 <CardMedia
                     sx={{ height: 140 }}
-                    image={img}
+                    image={card.thumbnailUrl}
                     title="green iguana"
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                        {cardTitle}
+                        {card.titleName}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        {cardDescription}
+                        {card.productDecription}
                     </Typography>
                 </CardContent>
-                <CardActions>
-                    <Button size="small">{Share}</Button>
-                    <Button size="small">{btnValue}</Button>
+                <CardActions style={{columnGap:"1rem"}}>
+                    <Typography variant="h5" component="div"><CurrencyRupeeIcon />{card.productPrice}</Typography>
+                    <Button size="small" onClick={operation}>Add to cart</Button>
                 </CardActions>
             </Card>
         </>
