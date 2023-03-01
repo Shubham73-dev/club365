@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useState,useContext } from 'react'
 import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import '../assets/styles/CartDrawer.css'
+import '../styles/cart.css'
+import dataContext from '../app/data-context';
 
 
 const CartDrawer = () => {
+    const cartValue = useContext(dataContext);
     const [state, setState] = React.useState({
         top: false,
         left: false,
@@ -33,7 +36,10 @@ const CartDrawer = () => {
         <>
             {['right'].map((anchor) => (
                 <React.Fragment key={anchor}>
-                    <Button onClick={toggleDrawer(anchor, true)}>{<ShoppingCartIcon />}</Button>
+                    <Button onClick={toggleDrawer(anchor, true)}>
+                        {<ShoppingCartIcon />}
+                        <div className="cartValue">{cartValue.cart}</div>
+                    </Button>
                     <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
                         {list(anchor)}
                     </Drawer>

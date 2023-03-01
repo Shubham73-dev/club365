@@ -1,16 +1,16 @@
 import React,{useEffect, useState} from 'react'
 import Appbar from '../widgets/Appbar'
 import TopHeader from './TopHeader'
-import dataContext from '../app/data-context'
+// import dataContext from '../app/data-context'
 const Navbar = () => {
-    const [data,setData] = useState([])
+    // const [cart,setCart] = useState(2)
     return (
-        <>
+        <div id='navBar'>
             <TopHeader />
-            <dataContext.Provider value={{data:data,setData: setData}}>
+            {/* <dataContext.Provider value={{cart:cart,setCart:setCart}}> */}
                 <Appbar />
-            </dataContext.Provider>
-        </>
+            {/* </dataContext.Provider> */}
+        </div>
     )
 }
 export default Navbar

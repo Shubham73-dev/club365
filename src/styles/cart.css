@@ -1,0 +1,6 @@
+.cartValue{
+    display: inline-block;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    right: 15%;
+}

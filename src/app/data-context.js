@@ -1,5 +1,5 @@
 import React from 'react'
 
-const dataContext = React.createContext({data:0, setData:()=>null});
+const dataContext = React.createContext();
 
 export default dataContext
