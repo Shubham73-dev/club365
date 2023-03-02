@@ -7,7 +7,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   row-gap: 1rem;
-  column-gap: 1rem;
+  column-gap: 4rem;
 }
 #navBar{
   position: sticky;
@@ -15,6 +15,7 @@
   z-index: 2;
   background-color: white;
 }
+/* RWD Code starts from here */
 @media(max-width:992px){
   .gridClass{
    grid-template-columns: repeat(2, 1fr);
@@ -28,3 +29,4 @@
    grid-template-columns: repeat(1, 1fr);
   } 
 }
+/* RWD Code ends here */

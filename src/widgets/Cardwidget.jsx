@@ -1,4 +1,4 @@
-import React, { useState,useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -11,21 +11,23 @@ import dataContext from '../app/data-context';
 const Cardwidget = ({ card }) => {
     const [clicked, setClicked] = useState(false);
     const cartValue = useContext(dataContext);
-    const handleClick = () => {
+    const handleClick = (card) => {
         setClicked(!clicked);
         cartValue.setCart(cartValue.cart + 1)
-      };
-    const unHandledClick = () => {
+        console.log(card);
+    };
+    const unHandledClick = (card) => {
         setClicked(!clicked);
         cartValue.setCart(cartValue.cart - 1)
-      };
+        console.log(card);
+    };
     return (
         <>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card sx={{ maxWidth: 345 }} id={card.product_Id}>
                 <CardMedia
                     sx={{ height: 140 }}
                     image={card.thumbnailUrl}
-                    title="green iguana"
+                    title={card.titleName}
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
@@ -35,12 +37,11 @@ const Cardwidget = ({ card }) => {
                         {card.productDecription}
                     </Typography>
                 </CardContent>
-                <CardActions style={{columnGap:"1rem"}}>
+                <CardActions style={{ columnGap: "1rem" }}>
                     <Typography variant="h5" component="div"><CurrencyRupeeIcon />{card.productPrice}</Typography>
-                    <Button size="small" onClick={clicked?unHandledClick:handleClick}>{clicked ? 'Remove from Cart' : 'Add to Cart'}</Button>
-                    {/* <button onClick={handleClick}>
+                    <Button size="small" onClick={clicked ? () => unHandledClick({ card }) : () => handleClick({ card })}>
                         {clicked ? 'Remove from Cart' : 'Add to Cart'}
-                    </button> */}
+                    </Button>
                 </CardActions>
             </Card>
         </>

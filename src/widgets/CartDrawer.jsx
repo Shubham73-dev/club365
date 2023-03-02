@@ -38,7 +38,7 @@ const CartDrawer = () => {
                 <React.Fragment key={anchor}>
                     <Button onClick={toggleDrawer(anchor, true)}>
                         {<ShoppingCartIcon />}
-                        <div className="cartValue">{cartValue.cart}</div>
+                        {(cartValue.cart>0) && <div className="cartValue">{cartValue.cart}</div>}
                     </Button>
                     <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
                         {list(anchor)}
