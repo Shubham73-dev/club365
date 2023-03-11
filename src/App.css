@@ -9,6 +9,10 @@
   row-gap: 1rem;
   column-gap: 4rem;
 }
+.img-adj{
+  height: 100%;
+  width: 100%;
+}
 #navBar{
   position: sticky;
   top: 0;

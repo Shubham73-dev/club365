@@ -1,14 +1,20 @@
-import React, { useState,useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import '../assets/styles/CartDrawer.css'
 import '../styles/cart.css'
 import dataContext from '../app/data-context';
+import emptyCartImg from '../assets/images/empty_cart_img.png'
+import { useSelector } from "react-redux";
+import Cardwidget from '../widgets/Cardwidget'
 
 
 const CartDrawer = () => {
     const cartValue = useContext(dataContext);
+    const addedItems = useSelector(state => state.cartItems.cartItems);
+    console.log('hurray we got value****', addedItems);
+    // const isLoading = useSelector(state=>state.users.isLoading);
     const [state, setState] = React.useState({
         top: false,
         left: false,
@@ -24,12 +30,15 @@ const CartDrawer = () => {
     };
     const list = (anchor) => (
         <div className='cartDrawerContainer'>
-            <div className='cartcardContainer'>
-                Your Cart is Empty
-            </div>
-            <Button variant="contained" color="success">
-                Proceed To Checkout
-            </Button>
+            {addedItems.length ? addedItems.map((value, index) => {
+                return (
+                    <Cardwidget key={index} card={value.card.card} />
+                )
+            }) :
+                <div className='cartcardContainer'>
+                    <h2 style={{ textAlign: 'center' }}>Oops!!! Your Cart Is Empty</h2>
+                    <img src={emptyCartImg} alt="empty cart" className='img-adj' />
+                </div>}
         </div>
     );
     return (
@@ -38,7 +47,7 @@ const CartDrawer = () => {
                 <React.Fragment key={anchor}>
                     <Button onClick={toggleDrawer(anchor, true)}>
                         {<ShoppingCartIcon />}
-                        {(cartValue.cart>0) && <div className="cartValue">{cartValue.cart}</div>}
+                        {(cartValue.cart > 0) && <div className="cartValue">{cartValue.cart}</div>}
                     </Button>
                     <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
                         {list(anchor)}
