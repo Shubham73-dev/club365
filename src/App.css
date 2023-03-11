@@ -13,6 +13,11 @@
   height: 100%;
   width: 100%;
 }
+input[type="number"]{
+  max-width: 2rem;
+  text-align: center;
+  outline: none;
+}
 #navBar{
   position: sticky;
   top: 0;
@@ -20,6 +25,7 @@
   background-color: white;
 }
 /* RWD Code starts from here */
+/* for tablet device */
 @media(max-width:992px){
   .gridClass{
    grid-template-columns: repeat(2, 1fr);
@@ -28,9 +34,13 @@
     max-width: none !important;
   }
 }
-@media(max-width:768px){
+/* for mobile device */
+@media(max-width:767px){
   .gridClass{
    grid-template-columns: repeat(1, 1fr);
   } 
+  .cartCardWidgets{
+    column-gap: 0px !important;
+  }
 }
 /* RWD Code ends here */

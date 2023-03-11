@@ -7,13 +7,13 @@ import '../styles/cart.css'
 import dataContext from '../app/data-context';
 import emptyCartImg from '../assets/images/empty_cart_img.png'
 import { useSelector } from "react-redux";
-import Cardwidget from '../widgets/Cardwidget'
+import CartCard from '../widgets/CartCard'
 
 
 const CartDrawer = () => {
     const cartValue = useContext(dataContext);
     const addedItems = useSelector(state => state.cartItems.cartItems);
-    console.log('hurray we got value****', addedItems);
+    // console.log('hurray we got value****', addedItems);
     // const isLoading = useSelector(state=>state.users.isLoading);
     const [state, setState] = React.useState({
         top: false,
@@ -32,7 +32,7 @@ const CartDrawer = () => {
         <div className='cartDrawerContainer'>
             {addedItems.length ? addedItems.map((value, index) => {
                 return (
-                    <Cardwidget key={index} card={value.card.card} />
+                    <CartCard key={index} card={value.card.card} />
                 )
             }) :
                 <div className='cartcardContainer'>

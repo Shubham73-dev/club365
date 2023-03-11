@@ -9,9 +9,9 @@ const Itemone = () => {
   const [data, setData] = useState([])
   const getProducts = async () => {
     const Products = await apiClient.get(CONFIG.Product_API_URL)
-    setData(Products.data['-NP6UbOIAzuUiUx1gDkS'].football)
+    setData(Products.data['-NQF2FKDl_8GfQX2p14y'].football)
     setLoad(false)
-    // console.log('Products are ::::', Products.data['-NP6UbOIAzuUiUx1gDkS'].football);
+    // console.log('Products are ::::', Products.data['-NQF2FKDl_8GfQX2p14y'].football);
   }
   useEffect(() => {
     getProducts();

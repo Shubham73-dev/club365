@@ -8,7 +8,7 @@ const Itemone = () => {
   const [data,setData] = useState([])
     const getProducts = async()=> {
       const Products = await apiClient.get(CONFIG.Product_API_URL)
-      setData(Products.data['-NP6UbOIAzuUiUx1gDkS'].jersey)
+      setData(Products.data['-NQF2FKDl_8GfQX2p14y'].jersey)
       setLoad(false)
     }
     useEffect(()=>{
