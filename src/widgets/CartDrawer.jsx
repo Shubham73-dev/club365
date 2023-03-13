@@ -29,17 +29,23 @@ const CartDrawer = () => {
         setState({ ...state, [anchor]: open });
     };
     const list = (anchor) => (
-        <div className='cartDrawerContainer'>
-            {addedItems.length ? addedItems.map((value, index) => {
-                return (
-                    <CartCard key={index} card={value.card.card} />
-                )
-            }) :
-                <div className='cartcardContainer'>
-                    <h2 style={{ textAlign: 'center' }}>Oops!!! Your Cart Is Empty</h2>
-                    <img src={emptyCartImg} alt="empty cart" className='img-adj' />
-                </div>}
-        </div>
+        <>
+            <div className='cartDrawerContainer'>
+                {addedItems.length ? addedItems.map((value, index) => {
+                    return (
+                        <CartCard key={index} card={value.card.card} />
+                    )
+                }) :
+                    <div className='cartcardContainer'>
+                        <h2 style={{ textAlign: 'center' }}>Oops!!! Your Cart Is Empty</h2>
+                        <img src={emptyCartImg} alt="empty cart" className='img-adj' />
+                    </div>}
+            </div>
+            {addedItems.length ? <Button className='checkoutBtn' variant="contained" color="success">
+  Proceed To CheckOut
+</Button> : ''}
+        </>
+        
     );
     return (
         <>
@@ -54,6 +60,8 @@ const CartDrawer = () => {
                     </Drawer>
                 </React.Fragment>
             ))}
+            <div className="">
+            </div>
         </>
     )
 }

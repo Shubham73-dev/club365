@@ -11,7 +11,7 @@ const Home = () => {
         <Navbar />
         <Approutes />
       </Container>
-      {/* <FooterSection /> */}
+      <FooterSection />
     </>
   )
 }

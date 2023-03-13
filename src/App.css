@@ -17,12 +17,21 @@ input[type="number"]{
   max-width: 2rem;
   text-align: center;
   outline: none;
+  /* cursor: pointer; */
 }
 #navBar{
   position: sticky;
   top: 0;
   z-index: 2;
   background-color: white;
+}
+.loaderContainer{
+  min-height: 80vh !important;
+}
+.checkoutBtn{
+  position: sticky !important;
+  bottom: 0 !important;
+  min-height: 50px;
 }
 /* RWD Code starts from here */
 /* for tablet device */
