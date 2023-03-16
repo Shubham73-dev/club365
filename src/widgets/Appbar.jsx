@@ -19,7 +19,7 @@ const Appbar = () => {
   return (
     <>
       <Tabs value={value} onChange={handleChange}>
-        <Linktab label="FOOTBALL" pathname="/" className="sigleFlex"/>
+        <Linktab label="FOOTBALL" pathname="/club365" className="sigleFlex"/>
         <Linktab label="JERSEY" pathname="itemsecond" className="sigleFlex"/>
         <Linktab label="STUDS" pathname="itemthird" className="sigleFlex"/>
       </Tabs>
