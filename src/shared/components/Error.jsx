@@ -2,7 +2,7 @@ import React from 'react'
 
 const Error = () => {
   return (
-    <div>OOPS SOMETHING WENT WRONG!!!</div>
+    <div className='loaderContainer'><h1>OOPS...SOMETHING WENT WRONG!!!</h1></div>
   )
 }
 

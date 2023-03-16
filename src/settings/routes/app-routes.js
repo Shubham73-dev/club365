@@ -7,7 +7,7 @@ import Error from '../../shared/components/Error'
 export const Approutes = ()=> {
     return(
         <Routes>
-            <Route path="/" element={<Itemone/>}/>
+            <Route path="/club365" element={<Itemone/>}/>
             <Route path="itemsecond" element={<Itemsecond/>}/>
             <Route path="itemthird" element={<Itemthird/>}/>
             <Route path="*" element={<Error/>}/>
