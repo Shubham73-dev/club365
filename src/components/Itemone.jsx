@@ -3,7 +3,7 @@ import Cardwidget from '../widgets/Cardwidget'
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from "react-redux";
 import { getAllProducts } from '../modules/products/redux/product-slice'
-import loader from '../assets/images/loading_gif_1_1.gif'
+// import loader from '../assets/images/loading_gif_1_1.gif'
 
 const Itemone = () => {
   const dispatch = useDispatch();

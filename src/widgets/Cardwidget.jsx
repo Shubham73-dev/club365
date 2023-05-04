@@ -7,22 +7,26 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import dataContext from '../app/data-context';
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { add,remove } from "../modules/cart/redux/cart-slice.js";
+import { addstat,removestat } from "../modules/card/redux/card-button-slice";
 
 
 const Cardwidget = ({ card }) => {
-    const [clicked, setClicked] = useState(false);
+    // const [clicked, setClicked] = useState(false);
+    const clicked = useSelector((state) => state.cardButtons.buttons[card.product_Id] ?? false);
     const cartValue = useContext(dataContext);
     const dispatch = useDispatch(); // React Redux Predefine Hook
+
     const handleClick = (card) => {
-        setClicked(!clicked);
+        dispatch(addstat({ id: card.card.product_Id }));
         cartValue.setCart(cartValue.cart + 1)
         // console.log(card);
         dispatch(add({card}));
     };
     const unHandledClick = (card) => {
-        setClicked(!clicked);
+        // setClicked(!clicked);
+        dispatch(removestat({ id: card.card.product_Id }));
         cartValue.setCart(cartValue.cart - 1)
         // console.log(card);
         dispatch(remove({card}));
@@ -45,8 +49,8 @@ const Cardwidget = ({ card }) => {
                 </CardContent>
                 <CardActions style={{ columnGap: "1rem" }}>
                     <Typography variant="h5" component="div"><CurrencyRupeeIcon />{card.productPrice}</Typography>
-                    <Button size="small" onClick={clicked ? () => unHandledClick({ card }) : () => handleClick({ card })}>
-                        {clicked ? 'Remove from Cart' : 'Add to Cart'}
+                    <Button id={card.product_Id} size="small" onClick={clicked ? () => unHandledClick({ card }) : () => handleClick({ card })}>
+                        {clicked ? 'Remove from Cart' : 'Add to Cart'} 
                     </Button>
                 </CardActions>
             </Card>
